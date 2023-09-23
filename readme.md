@@ -1,6 +1,8 @@
-# Build Plus: Generate Static HTML Pages from Single Page Applications 🚀
+# Build Plus
 
 [![Downloads](https://img.shields.io/npm/dm/build-plus.svg)](https://www.npmjs.com/package/build-plus) [![Version](https://img.shields.io/npm/v/build-plus.svg)](https://www.npmjs.com/package/build-plus)
+
+Generate Static HTML Pages from Single Page Applications 🚀
 
 Build Plus is a powerful tool that allows you to effortlessly add static HTML pages into your Single Page Application (SPA) build, significantly enhancing SEO capabilities. 🌐✨
 
@@ -42,7 +44,7 @@ Build Plus utilizes a pages.json configuration file by default, located at the r
 
 Sample `pages.json`:
 
-```
+```json
 {
   "pages": [
     "/",

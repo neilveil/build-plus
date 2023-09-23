@@ -1,6 +1,6 @@
 {
   "name": "build-plus",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Generate Static HTML Pages from Single Page Applications",
   "bin": "src/index.js",
   "author": "neilveil",
@@ -11,9 +11,6 @@
     "puppeteer": "^21.3.4"
   },
   "keywords": [
-    "front-end",
-    "generator",
-    "html",
     "page-rendering",
     "seo",
     "single-page-application",
@@ -21,8 +18,6 @@
     "static",
     "static-pages",
     "static-site",
-    "web-applications",
-    "web-development",
-    "website"
+    "static-site-generator"
   ]
 }
