@@ -1,13 +1,28 @@
 {
-  "name": "page-maker",
+  "name": "build-plus",
   "version": "0.1.0",
-  "description": "",
+  "description": "Generate Static HTML Pages from Single Page Applications",
   "bin": "src/index.js",
-  "keywords": [],
   "author": "neilveil",
   "license": "MIT",
+  "repository": "neilveil/build-plus",
   "dependencies": {
     "express": "^4.18.2",
     "puppeteer": "^21.3.4"
-  }
+  },
+  "keywords": [
+    "front-end",
+    "generator",
+    "html",
+    "page-rendering",
+    "seo",
+    "single-page-application",
+    "spa",
+    "static",
+    "static-pages",
+    "static-site",
+    "web-applications",
+    "web-development",
+    "website"
+  ]
 }

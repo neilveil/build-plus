@@ -1,9 +1,11 @@
+#!/usr/bin/env node
+
 const puppeteer = require('puppeteer')
 const path = require('path')
 const fs = require('fs')
 const express = require('express')
 
-const consolePrefix = 'page-maker: '
+const consolePrefix = 'build-plus: '
 
 const configPath = path.resolve(process.argv[2] || './pages.json')
 

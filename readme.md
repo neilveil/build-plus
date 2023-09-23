@@ -1,16 +1,18 @@
-# Page Maker: Generate Static HTML Pages from Single Page Applications 🚀
+# Build Plus: Generate Static HTML Pages from Single Page Applications 🚀
 
-Page Maker is a powerful tool that allows you to effortlessly generate static HTML pages from your Single Page Application (SPA) builds, significantly enhancing SEO capabilities. 🌐✨
+[![Downloads](https://img.shields.io/npm/dm/build-plus.svg)](https://www.npmjs.com/package/build-plus) [![Version](https://img.shields.io/npm/v/build-plus.svg)](https://www.npmjs.com/package/build-plus)
+
+Build Plus is a powerful tool that allows you to effortlessly add static HTML pages into your Single Page Application (SPA) build, significantly enhancing SEO capabilities. 🌐✨
 
 ## Seamless Integration
 
-Integrating Page Maker into your build process is a breeze. Simply add the `page-maker` command to your existing `build` script, and you're good to go! 🎉
+Integrating Build Plus into your build process is a breeze. Simply add the `build-plus` command to your existing `build` script, and you're good to go! 🎉
 
 For instance, with `create-react-app`:
 
 ```json
 "scripts": {
-  "build": "react-scripts build && page-maker"
+  "build": "react-scripts build && build-plus"
 }
 ```
 
@@ -18,25 +20,25 @@ Or with `vite`:
 
 ```json
 "scripts": {
-  "build": "vite build && page-maker"
+  "build": "vite build && build-plus"
 }
 ```
 
 ## Compatibility
 
-Page Maker seamlessly integrates with popular single page application frameworks including `ReactJS`, `VueJS`, `Angular`, and more.
+Build Plus seamlessly integrates with popular single page application frameworks including `ReactJS`, `VueJS`, `Angular`, and more.
 
 👍 Great for static website hosting services.
 
 ## Installation
 
 ```bash
-npm install page-maker
+npm install build-plus
 ```
 
 ## Configuration file
 
-Page Maker utilizes a pages.json configuration file by default, located at the root of your project. This file allows you to specify the paths you want to export as static pages.
+Build Plus utilizes a pages.json configuration file by default, located at the root of your project. This file allows you to specify the paths you want to export as static pages.
 
 Sample `pages.json`:
 
@@ -66,7 +68,7 @@ All coniguration parameters
 To use a different configuration file:
 
 ```bash
-page-maker some-other-page-maker-config.json
+build-plus some-other-build-plus-config.json
 ```
 
 ## Contributing
