@@ -15,13 +15,13 @@ if (!fs.existsSync(configPath)) {
 
 const config = JSON.parse(fs.readFileSync(configPath).toString())
 
-const protocol = config.protocol || 'http'
-const host = config.host || 'localhost'
 const port = config.port || 8080
 const src = path.resolve(config.src || 'build')
 const pages = config.pages || []
 const width = config.width || 1920
 const height = config.height || 1080
+const base = config.base || ''
+const debug = config.debug || false
 
 let dirs = []
 
@@ -39,33 +39,43 @@ dirs = Array.from(new Set(dirs))
 
 dirs.forEach(dir => fs.mkdirSync(path.resolve(src, dir), { recursive: true }))
 
-const baseURL = `${protocol}://${host}${port ? ':' + port : ''}`
+const baseURL = `http://localhost:${port}${base}`
+
+const pageGenerator = async () => {
+  const browser = await puppeteer.launch({ headless: 'new' })
+  const browserPage = await browser.newPage()
+  await browserPage.setViewport({ width, height })
+
+  for (const page of pages) {
+    const url = baseURL + page
+    const outputPage = page.endsWith('/') ? page + 'index.html' : page + '.html'
+
+    console.log(`${consolePrefix}Generating page: ${page} -> ${outputPage}`)
+
+    await browserPage.goto(url)
+    await browserPage.waitForNavigation({ timeout: 5000, waitUntil: 'networkidle0' })
+    const content = await browserPage.content()
+
+    fs.writeFileSync(path.resolve(src, outputPage.slice(1)), content)
+  }
+
+  console.log(`${consolePrefix}Pages generated!`)
+}
 
 const main = async () => {
   const app = express()
-  app.use(express.static(src))
+
+  if (base) app.use(base, express.static(src))
+  else app.use(express.static(src))
+
   app.get('*', (req, res) => res.sendFile(path.resolve(src, 'index.html')))
+
   const server = app.listen(port, async () => {
     console.log(`${consolePrefix}Server running on port: ${port}`)
 
-    const browser = await puppeteer.launch({ headless: 'new' })
-    const browserPage = await browser.newPage()
-    await browserPage.setViewport({ width, height })
+    if (debug) return
 
-    for (const page of pages) {
-      const url = baseURL + page
-      const outputPage = page.endsWith('/') ? page + 'index.html' : page + '.html'
-
-      console.log(`${consolePrefix}Generating page: ${page} -> ${outputPage}`)
-
-      await browserPage.goto(url)
-      await browserPage.waitForNavigation({ timeout: 5000, waitUntil: 'networkidle0' })
-      const content = await browserPage.content()
-
-      fs.writeFileSync(path.resolve(src, outputPage.slice(1)), content)
-    }
-
-    console.log(`${consolePrefix}Pages generated!`)
+    await pageGenerator()
 
     browser.close()
     server.close()

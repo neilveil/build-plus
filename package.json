@@ -1,14 +1,21 @@
 {
   "name": "build-plus",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Generate Static HTML Pages from Single Page Applications",
   "bin": "src/index.js",
   "author": "neilveil",
   "license": "MIT",
   "repository": "neilveil/build-plus",
+  "scripts": {
+    "start": "node src/index.js",
+    "pretty": "prettier --write ./src/**/*"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "puppeteer": "^21.3.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
   },
   "keywords": [
     "page-rendering",

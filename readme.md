@@ -50,22 +50,24 @@ Sample `pages.json`:
     "/",
     "/home",
     "/about",
+    "/contact",
+    "/services",
     "/product/abc",
-    "/product/xyz",
-  ],
-  "src": "build"
+    "/product/def",
+    "/product/ghi",
+    "/product/jkl"
+  ]
 }
 ```
 
 All coniguration parameters
 
-| Key        | Usage                                                |
-| ---------- | ---------------------------------------------------- |
-| `pages`    | List of paths which need to be exported              |
-| `src`      | Build directory path (Default: `build`)              |
-| `port`     | Port to use while generating pages (Default: `8080`) |
-| `host`     | `localhost` (Default: `localhost`)                   |
-| `protocol` | `http` `https` (Default: `http`)                     |
+| Key     | Usage                                                          |
+| ------- | -------------------------------------------------------------- |
+| `pages` | List of paths which need to be exported                        |
+| `src`   | Build directory path (Default: `build`)                        |
+| `port`  | Port to use while generating pages (Default: `8080`)           |
+| `base`  | Base path, e.g. github pages uses repository name as base path |
 
 To use a different configuration file:
 
