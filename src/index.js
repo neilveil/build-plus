@@ -57,8 +57,7 @@ const pageGenerator = async () => {
 
     console.log(`${consolePrefix}Generating page: ${page} -> ${outputPage}`)
 
-    await browserPage.goto(url)
-    await browserPage.waitForNavigation({ waitUntil: 'networkidle0' })
+    await browserPage.goto(url, { waitUntil: 'networkidle0' })
     const content = await browserPage.content()
 
     fs.writeFileSync(path.resolve(src, outputPage.slice(1)), content)
