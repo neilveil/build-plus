@@ -42,7 +42,12 @@ dirs.forEach(dir => fs.mkdirSync(path.resolve(src, dir), { recursive: true }))
 const baseURL = `http://localhost:${port}${base}`
 
 const pageGenerator = async () => {
-  const browser = await puppeteer.launch({ headless: 'new' })
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox'],
+    ignoreHTTPSErrors: true,
+    devtools: false
+  })
   const browserPage = await browser.newPage()
   await browserPage.setViewport({ width, height })
 
