@@ -59,6 +59,8 @@ const pageGenerator = async () => {
     fs.writeFileSync(path.resolve(src, outputPage.slice(1)), content)
   }
 
+  browser.close()
+
   console.log(`${consolePrefix}Pages generated!`)
 }
 
@@ -77,7 +79,6 @@ const main = async () => {
 
     await pageGenerator()
 
-    browser.close()
     server.close()
   })
 }

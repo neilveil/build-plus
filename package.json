@@ -1,6 +1,6 @@
 {
   "name": "build-plus",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Generate Static HTML Pages from Single Page Applications",
   "bin": "src/index.js",
   "author": "neilveil",
